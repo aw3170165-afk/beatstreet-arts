@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Indica - Order Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-bg: #fff5f7; --accent-green: #1a4d2e; --white: #ffffff; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--primary-bg); color: #333; padding-bottom: 90px; }
+        header { background: var(--white); padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 600px; margin: auto; padding: 15px; }
+        .category-title { margin: 25px 0 15px; font-size: 1.2rem; color: var(--accent-green); border-bottom: 2px solid #ffcad4; display: inline-block; padding-bottom: 5px; }
+        .menu-item { background: var(--white); border-radius: 12px; padding: 15px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .item-info h3 { font-size: 1rem; margin-bottom: 5px; }
+        .item-info p { font-size: 0.9rem; color: #666; }
+        .price-select { display: flex; flex-direction: column; align-items: flex-end; }
+        select { padding: 5px; border-radius: 5px; border: 1px solid #ddd; margin-bottom: 5px; font-size: 0.8rem; background: #fff; }
+        .add-btn { background: var(--accent-green); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; transition: 0.3s; }
+        .add-btn:hover { background: #2d6a4f; }
+        .cart-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: var(--accent-green); color: white; padding: 15px 25px; border-radius: 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2); cursor: pointer; display: none; z-index: 2000; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cafe Indica ☕</h1>
+    <p>Fresh & Delicious Food</p>
+</header>
+
+<div class="container" id="menu-container"></div>
+
+<div class="cart-bar" id="cart-bar" onclick="sendToWhatsApp()">
+    <span id="cart-count">0 Items</span>
+    <span>Place Order (WhatsApp) →</span>
+</div>
+
+<script>
+    const WHATSAPP_NUMBER = "918697781622"; 
+
+    const menuData = [
+        { category: "Tea & Coffee", items: [
+            { name: "Milk Tea", variants: [{size: "Small", price: 19}, {size: "Large", price: 29}] },
+            { name: "Elaichi Tea", price: 29 },
+            { name: "Cold Coffee", price: 69 },
+            { name: "Hot Coffee (Vanilla/Choco)", price: 49 }
+        ]},
+        { category: "Maggie", items: [
+            { name: "Plain Maggie", price: 39 },
+            { name: "Veg Maggie", price: 49 },
+            { name: "Corn Maggie", price: 59 },
+            { name: "Egg Maggie", price: 69 },
+            { name: "Chicken Maggie", price: 79 }
+        ]},
+        { category: "Soups", items: [
+            { name: "Veg Soup + Garlic Bread", price: 99 },
+            { name: "Chicken Soup + Garlic Bread", price: 139 }
+        ]},
+        { category: "Burgers & Sandwiches", items: [
+            { name: "Veg Burger", price: 59 },
+            { name: "Chicken Burger", price: 79 },
+            { name: "Chicken Cheese Sandwich", price: 109 },
+            { name: "Extra Cheese", price: 20 }
+        ]},
+        { category: "Snacks", items: [
+            { name: "French Fries", variants: [{size: "Medium", price: 59}, {size: "Large", price: 79}] },
+            { name: "Peri Peri Fries", variants: [{size: "Medium", price: 69}, {size: "Large", price: 89}] },
+            { name: "Fish Finger (5pcs)", price: 119 },
+            { name: "Chicken Nuggets", price: 79 }
+        ]},
+        { category: "Salad", items: [
+            { name: "High Protein Veg Salad", price: 65 },
+            { name: "High Protein Chicken Salad", price: 129 }
+        ]},
+        { category: "Combos", items: [
+            { name: "Combo 1: Fries(M)+Burger+Drink", price: 149 },
+            { name: "Combo 2: Fries(M)+Veg Burger+Sandwich", price: 167 },
+            { name: "Combo 3: 2 Chk Sandwich+5 Fish Finger", price: 269 }
+        ]}
+    ];
+
+    let cart = [];
+
+    function renderMenu() {
+        const container = document.getElementById('menu-container');
+        menuData.forEach(cat => {
+            let html = `<h2 class="category-title">${cat.category}</h2>`;
+            cat.items.forEach(item => {
+                html += `
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3>${item.name}</h3>
+                        <p>₹${item.price || item.variants[0].price}</p>
+                    </div>
+                    <div class="price-select">
+                        ${item.variants ? `<select id="opt-${item.name.replace(/\s/g, '')}">
+                            ${item.variants.map(v => `<option value="${v.price}">${v.size} - ₹${v.price}</option>`).join('')}
+                        </select>` : ''}
+                        <button class="add-btn" onclick="addToCart('${item.name}', ${item.price || 0}, ${!!item.variants})">ADD</button>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML += html;
+        });
+    }
+
+    function addToCart(name, price, hasVariants) {
+        let selectedPrice = price;
+        let selectedSize = "";
+        if(hasVariants) {
+            const sel = document.getElementById(`opt-${name.replace(/\s/g, '')}`);
+            selectedPrice = parseInt(sel.value);
+            selectedSize = sel.options[sel.selectedIndex].text.split(' - ')[0];
+        }
+        cart.push({ name, price: selectedPrice, size: selectedSize });
+        updateCartBar();
+    }
+
+    function updateCartBar() {
+        const bar = document.getElementById('cart-bar');
+        const count = document.getElementById('cart-count');
+        if(cart.length > 0) {
+            bar.style.display = 'flex';
+            const total = cart.reduce((s, i) => s + i.price, 0);
+            count.innerText = `${cart.length} Items | Total: ₹${total}`;
+        }
+    }
+
+    function sendToWhatsApp() {
+        let msg = "*New Order - Cafe Indica*%0A%0A";
+        cart.forEach((i, index) => {
+            msg += `${index+1}. ${i.name} ${i.size ? '('+i.size+')' : ''}: ₹${i.price}%0A`;
+        });
+        const total = cart.reduce((s, i) => s + i.price, 0);
+        msg += `%0A*Grand Total: ₹${total}*%0A%0APlease confirm my order.`;
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`);
+    }
+
+    renderMenu();
+</script>
+</body>
+</html>
