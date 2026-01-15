@@ -3,35 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafe Indica - Smart Menu</title>
+    <title>Cafe Indica - Complete Menu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --accent-green: #1a4d2e; --white: rgba(255, 255, 255, 0.95); }
+        :root { --accent-green: #1a4d2e; --white: rgba(255, 255, 255, 0.98); }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { 
             background: url('https://i.imgur.com/8m5XN3V.jpeg') no-repeat center center fixed; 
             background-size: cover; padding-bottom: 120px; 
         }
         .overlay { background: rgba(0, 0, 0, 0.5); min-height: 100vh; width: 100%; }
-        header { background: var(--white); padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--accent-green); }
+        header { background: var(--white); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--accent-green); margin-bottom: 5px; }
         .container { max-width: 500px; margin: auto; padding: 15px; }
-        .category-title { margin: 25px 0 15px; font-size: 1.1rem; color: #fff; background: var(--accent-green); padding: 8px 12px; border-radius: 8px; text-transform: uppercase; }
-        .menu-card { background: var(--white); border-radius: 18px; margin-bottom: 15px; display: flex; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; }
-        .item-img { width: 100px; height: 100px; object-fit: cover; }
-        .item-details { padding: 12px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .item-details h3 { font-size: 0.9rem; color: #333; }
-        .item-details p { font-size: 1rem; color: var(--accent-green); font-weight: 600; }
-        .action-area { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; padding: 10px; }
-        
-        /* Size Dropdown Styling */
-        .size-select { 
-            padding: 5px; border-radius: 6px; border: 1px solid #ccc; 
-            font-size: 0.75rem; margin-bottom: 8px; outline: none; background: #f9f9f9;
-        }
-
-        .add-btn { background: var(--accent-green); color: white; border: none; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-weight: 600; }
-        .cart-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; background: #1a4d2e; color: white; padding: 16px; border-radius: 15px; display: none; justify-content: space-between; align-items: center; z-index: 2000; }
+        .category-title { margin: 20px 0 10px; font-size: 1rem; color: #fff; background: var(--accent-green); padding: 8px 15px; border-radius: 8px; text-transform: uppercase; border-left: 5px solid #febd2f; }
+        .menu-card { background: var(--white); border-radius: 15px; margin-bottom: 12px; display: flex; box-shadow: 0 4px 15px rgba(0,0,0,0.2); overflow: hidden; align-items: center; }
+        .item-img { width: 90px; height: 90px; object-fit: cover; flex-shrink: 0; }
+        .item-details { padding: 10px; flex: 1; }
+        .item-details h3 { font-size: 0.85rem; color: #333; margin-bottom: 2px; }
+        .item-details p { font-size: 0.95rem; color: var(--accent-green); font-weight: 600; }
+        .action-area { display: flex; flex-direction: column; align-items: flex-end; padding: 10px; min-width: 100px; }
+        .size-select { padding: 5px; border-radius: 6px; border: 1px solid #ddd; font-size: 0.7rem; margin-bottom: 8px; width: 95px; background: #fff; }
+        .add-btn { background: var(--accent-green); color: white; border: none; padding: 8px 18px; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.75rem; }
+        .cart-bar { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 450px; background: #1a4d2e; color: white; padding: 16px; border-radius: 15px; display: none; justify-content: space-between; align-items: center; z-index: 2000; box-shadow: 0 10px 25px rgba(0,0,0,0.5); cursor: pointer; }
     </style>
 </head>
 <body>
@@ -44,35 +38,81 @@
 <div class="container" id="menu-container"></div>
 
 <div class="cart-bar" id="cart-bar" onclick="sendToWhatsApp()">
-    <span id="cart-count">0 Items</span>
-    <span>Checkout on WhatsApp →</span>
+    <span id="cart-count">0 Items | ₹0</span>
+    <span>Order on WhatsApp →</span>
 </div>
 </div>
 
 <script>
     const WHATSAPP_NUMBER = "918697781622";
-    
-    // Yahan maine items ke multiple sizes (Small/Large) add kar diye hain
     const menuData = [
-        { category: "Tea & Coffee", items: [
-            { 
-                name: "Milk Tea", 
-                img: "https://images.unsplash.com/photo-1544787210-2211d74fc596?w=200",
-                variants: [{size: "Small", price: 19}, {size: "Large", price: 29}] 
-            },
-            { 
-                name: "Cold Coffee", 
-                img: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200",
-                variants: [{size: "Regular", price: 69}, {size: "Large", price: 89}]
-            }
+        { category: "TEA ☕", items: [
+            { name: "Milk Tea", variants: [{size: "Small", price: 19}, {size: "Large", price: 29}], img: "https://images.unsplash.com/photo-1544787210-2211d74fc596?w=200" },
+            { name: "Elaichi Tea", price: 29, img: "https://images.unsplash.com/photo-1594631252845-29fc458695d6?w=200" },
+            { name: "Black Tea", price: 19, img: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=200" },
+            { name: "Lemon Tea", price: 14, img: "https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?w=200" },
+            { name: "Masala Lemon Tea", price: 19, img: "https://images.unsplash.com/photo-1544787210-2211d74fc596?w=200" },
+            { name: "Green Tea", price: 19, img: "https://images.unsplash.com/photo-1563823251941-b9989d1e8d97?w=200" }
         ]},
-        { category: "Snacks", items: [
-            { 
-                name: "French Fries", 
-                img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200",
-                variants: [{size: "Medium", price: 59}, {size: "Large", price: 89}]
-            },
-            { name: "Veg Burger", price: 59, img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200" }
+        { category: "COFFEE ☕", items: [
+            { name: "Milk Coffee", price: 29, img: "https://images.unsplash.com/photo-1541167760496-162955ed8a9f?w=200" },
+            { name: "Black Coffee", price: 19, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200" },
+            { name: "Cold Coffee", price: 69, img: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200" },
+            { name: "Vanilla Hot Coffee", price: 49, img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200" },
+            { name: "Chocolate Hot Coffee", price: 49, img: "https://images.unsplash.com/photo-1544787210-2211d74fc596?w=200" }
+        ]},
+        { category: "SALAD 🥗", items: [
+            { name: "High Protein Veg Salad", price: 59, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200" },
+            { name: "High Protein Chicken Salad", price: 129, img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200" }
+        ]},
+        { category: "SOUP 🥣", items: [
+            { name: "Veg soup+garlic bread", price: 99, img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200" },
+            { name: "Chicken soup+garlic bread", price: 139, img: "https://images.unsplash.com/photo-1603105076183-01bd9027878d?w=200" }
+        ]},
+        { category: "SANDWICH 🥪", items: [
+            { name: "Veg Sandwich", price: 69, img: "https://images.unsplash.com/photo-1539252554452-da09fa101ce4?w=200" },
+            { name: "Corn Sandwich", price: 79, img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=200" },
+            { name: "Veg Cheese Sandwich", price: 89, img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=200" },
+            { name: "Chicken Sandwich", price: 89, img: "https://images.unsplash.com/photo-1550507992-061784b4229a?w=200" },
+            { name: "Chicken Cheese Sandwich", price: 109, img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=200" }
+        ]},
+        { category: "BURGER 🍔", items: [
+            { name: "Veg Burger", price: 59, img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200" },
+            { name: "Chicken Burger", price: 79, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" },
+            { name: "Veg Cheese Burger", price: 79, img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200" },
+            { name: "Chicken Cheese Burger", price: 99, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" },
+            { name: "Grilled Chicken Burger", price: 99, img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=200" }
+        ]},
+        { category: "PASTA 🍝", items: [
+            { name: "White Sause Pasta", price: 99, img: "https://images.unsplash.com/photo-1645112481338-31627c73797c?w=200" },
+            { name: "Red Tomato Pasta", price: 99, img: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=200" },
+            { name: "Chicken Pasta", price: 139, img: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=200" }
+        ]},
+        { category: "MAGGIE 🍜", items: [
+            { name: "Veg Maggie", price: 49, img: "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=200" },
+            { name: "Maggie", price: 39, img: "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=200" },
+            { name: "Corn Maggie", price: 59, img: "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=200" },
+            { name: "Chicken Maggie", price: 79, img: "https://images.unsplash.com/photo-1585032226651-759b368d7244?w=200" }
+        ]},
+        { category: "COMBO 🍱", items: [
+            { name: "Fries(M)+Chicken Burger+Drink", price: 149, img: "https://i.imgur.com/rS7z9qZ.jpeg" },
+            { name: "Fries(M)+Veg Burger+Veg Sandwich", price: 167, img: "https://images.unsplash.com/photo-1594179047519-f347310d3322?w=200" },
+            { name: "(2)Chicken Sandwich+Fish Finger(5ps)", price: 269, img: "https://images.unsplash.com/photo-1529003600303-bd51f39627fb?w=200" }
+        ]},
+        { category: "SNACKS 🍟", items: [
+            { name: "French Fries", variants: [{size: "Medium", price: 59}, {size: "Large", price: 79}], img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200" },
+            { name: "Peri Peri French Fries", variants: [{size: "Medium", price: 69}, {size: "Large", price: 89}], img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200" },
+            { name: "Fish Finger (5ps)", price: 119, img: "https://images.unsplash.com/photo-1529003600303-bd51f39627fb?w=200" },
+            { name: "Chicken Finger (5ps)", price: 129, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=200" },
+            { name: "Chicken Nugget (5ps)", price: 79, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=200" },
+            { name: "Chicken Cheese Ball", price: 79, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=200" }
+        ]},
+        { category: "BEVERAGES 🍹", items: [
+            { name: "Lime Soda", price: 79, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200" },
+            { name: "Virgin Mojito", price: 79, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200" },
+            { name: "Blue Lagoon", price: 69, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200" },
+            { name: "Kacha Mango Mojito", price: 69, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200" },
+            { name: "Green Apple", price: 69, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200" }
         ]}
     ];
 
@@ -82,10 +122,10 @@
         menuData.forEach(cat => {
             html += `<h2 class="category-title">${cat.category}</h2>`;
             cat.items.forEach((item, idx) => {
-                const itemId = `item-${cat.category.replace(/\s/g, '')}-${idx}`;
+                const itemId = `item-${cat.category.replace(/[^a-zA-Z]/g, '')}-${idx}`;
                 html += `
                 <div class="menu-card">
-                    <img src="${item.img}" class="item-img">
+                    <img src="${item.img}" class="item-img" onerror="this.src='https://via.placeholder.com/100?text=Food'">
                     <div class="item-details">
                         <h3>${item.name}</h3>
                         <p id="price-${itemId}">₹${item.variants ? item.variants[0].price : item.price}</p>
@@ -93,7 +133,7 @@
                     <div class="action-area">
                         ${item.variants ? `
                             <select class="size-select" id="select-${itemId}" onchange="updatePrice('${itemId}', this)">
-                                ${item.variants.map(v => `<option value="${v.price}">${v.size}</option>`).join('')}
+                                ${item.variants.map(v => `<option value="${v.price}">${v.size} - ₹${v.price}</option>`).join('')}
                             </select>
                         ` : ''}
                         <button class="add-btn" onclick="addToCart('${item.name}', '${itemId}', ${!!item.variants})">ADD</button>
@@ -114,11 +154,10 @@
         if(hasVariants) {
             const select = document.getElementById(`select-${itemId}`);
             finalPrice = parseInt(select.value);
-            finalSize = select.options[select.selectedIndex].text;
+            finalSize = select.options[select.selectedIndex].text.split(' - ')[0];
         } else {
             finalPrice = parseInt(document.getElementById(`price-${itemId}`).innerText.replace('₹', ''));
         }
-        
         cart.push({ name, price: finalPrice, size: finalSize });
         document.getElementById('cart-bar').style.display = 'flex';
         const total = cart.reduce((s, i) => s + i.price, 0);
@@ -126,9 +165,9 @@
     }
 
     window.sendToWhatsApp = function() {
-        let msg = "*New Order - Cafe Indica*%0A%0A";
+        let msg = "*Cafe Indica - New Order*%0A%0A";
         cart.forEach((i, idx) => { msg += `${idx+1}. ${i.name} ${i.size ? '['+i.size+']' : ''}: ₹${i.price}%0A`; });
-        msg += `%0A*Total: ₹${cart.reduce((s, i) => s + i.price, 0)}*`;
+        msg += `%0A*Total Amount: ₹${cart.reduce((s, i) => s + i.price, 0)}*`;
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`);
     }
     renderMenu();
