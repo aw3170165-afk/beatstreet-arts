@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatstreet Arts Academy | Elite School</title>
+    <title>Beatstreet Arts Academy | Premium Creative School</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
         .cursor-dot { width: 8px; height: 8px; background: var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 10000; }
         .cursor-outline { width: 35px; height: 35px; border: 1px solid rgba(255,255,255,0.5); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.15s ease-out; }
 
+        /* Full-Screen Background Styling */
         .section-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
         .section-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.35) contrast(1.1); }
         .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.9)); }
@@ -40,20 +41,20 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <nav class="fixed w-full z-50 p-8 flex justify-between items-center mix-blend-difference">
-        <div class="heading-font text-2xl font-bold tracking-tighter text-white">B-STREET<span class="text-red-600">.</span></div>
+    <nav class="fixed w-full z-50 p-8 flex justify-between items-center mix-blend-difference text-white">
+        <div class="heading-font text-2xl font-bold tracking-tighter">B-STREET<span class="text-red-600">.</span></div>
         <div class="hidden md:flex gap-8 text-[9px] uppercase tracking-[0.4em] font-bold">
-            <a href="#dance" class="text-white hover:text-red-600 transition">Dance</a>
-            <a href="#arts" class="text-white hover:text-red-600 transition">Arts</a>
-            <a href="#zumba" class="text-white hover:text-red-600 transition">Zumba</a>
-            <a href="#guitar" class="text-white hover:text-red-600 transition">Guitar</a>
-            <a href="#admission" class="bg-red-600 px-5 py-2 text-white hover:bg-white hover:text-black transition">Apply Now</a>
+            <a href="#dance" class="hover:text-red-600 transition">Dance</a>
+            <a href="#arts" class="hover:text-red-600 transition">Arts</a>
+            <a href="#zumba" class="hover:text-red-600 transition">Zumba</a>
+            <a href="#guitar" class="hover:text-red-600 transition">Guitar</a>
+            <a href="#admission" class="bg-red-600 px-5 py-2 hover:bg-white hover:text-black transition">Apply Now</a>
         </div>
     </nav>
 
     <section id="home" class="relative h-screen flex items-center px-10 md:px-24">
         <div class="section-bg">
-            <img src="https://images.unsplash.com/photo-1514525253361-bee8718a340b?q=80&w=1974&auto=format&fit=crop" alt="Academy Main">
+            <img src="https://images.unsplash.com/photo-1514525253361-bee8718a340b?q=80&w=2000" alt="Academy Main">
             <div class="overlay"></div>
         </div>
         <div class="max-w-4xl">
@@ -65,7 +66,7 @@
 
     <section id="dance" class="relative min-h-screen flex items-center px-10 md:px-24 py-20">
         <div class="section-bg">
-            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1974&auto=format&fit=crop" alt="Dance Background">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=2000" alt="Dance Background">
             <div class="overlay"></div>
         </div>
         <div class="w-full">
@@ -76,7 +77,7 @@
                 <div>
                     <h4 class="heading-font text-sm text-white">Abhay Basfore</h4>
                     <p class="text-[9px] text-red-600 font-bold uppercase tracking-widest mb-3">Lead Choreographer</p>
-                    <p class="text-[11px] text-gray-400 leading-relaxed italic">8+ years of stage experience. Master of Urban Hip-Hop & Freestyle Soul. Dedicated to teaching rhythm as a lifestyle.</p>
+                    <p class="text-[11px] text-gray-400 leading-relaxed italic">8+ years of stage experience. Master of Urban Hip-Hop & Freestyle Soul.</p>
                 </div>
             </div>
         </div>
@@ -84,7 +85,7 @@
 
     <section id="arts" class="relative min-h-screen flex items-center px-10 md:px-24 py-20">
         <div class="section-bg">
-            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=2000&auto=format&fit=crop" alt="Arts Background">
+            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=2000" alt="Arts Background">
             <div class="overlay"></div>
         </div>
         <div class="w-full text-right flex flex-col items-end">
@@ -95,7 +96,7 @@
                 <div>
                     <h4 class="heading-font text-sm text-white">Arpita Das</h4>
                     <p class="text-[9px] text-red-600 font-bold uppercase tracking-widest mb-3">Senior Art Mentor</p>
-                    <p class="text-[11px] text-gray-400 leading-relaxed italic">Gold Medalist in Fine Arts. Expert in Oil Painting, Sketching, and Creative Illustrations for all ages.</p>
+                    <p class="text-[11px] text-gray-400 leading-relaxed italic">Gold Medalist Artist specializing in Oil Painting & Charcoal portraits.</p>
                 </div>
             </div>
         </div>
@@ -103,7 +104,7 @@
 
     <section id="zumba" class="relative min-h-screen flex items-center px-10 md:px-24 py-20">
         <div class="section-bg">
-            <img src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=2000&auto=format&fit=crop" alt="Zumba Background">
+            <img src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=2000" alt="Zumba Background">
             <div class="overlay"></div>
         </div>
         <div class="w-full">
@@ -114,7 +115,7 @@
                 <div>
                     <h4 class="heading-font text-sm text-white">Ritu Roy</h4>
                     <p class="text-[9px] text-red-600 font-bold uppercase tracking-widest mb-3">Zumba Expert</p>
-                    <p class="text-[11px] text-gray-400 leading-relaxed italic">Transforming lives through rhythm and fitness. High-energy Zumba sessions for weight loss and holistic health.</p>
+                    <p class="text-[11px] text-gray-400 leading-relaxed italic">High-energy Zumba sessions for weight loss and holistic health.</p>
                 </div>
             </div>
         </div>
@@ -122,7 +123,7 @@
 
     <section id="guitar" class="relative min-h-screen flex items-center px-10 md:px-24 py-20">
         <div class="section-bg">
-            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=2000&auto=format&fit=crop" alt="Guitar Background">
+            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=2000" alt="Guitar Background">
             <div class="overlay"></div>
         </div>
         <div class="w-full text-right flex flex-col items-end">
@@ -133,15 +134,46 @@
                 <div>
                     <h4 class="heading-font text-sm text-white">Rahul Sen</h4>
                     <p class="text-[9px] text-red-600 font-bold uppercase tracking-widest mb-3">Music Lead</p>
-                    <p class="text-[11px] text-gray-400 leading-relaxed italic">Mastering the strings. From classical basics to rock solos, learn the art of guitar from a professional musician.</p>
+                    <p class="text-[11px] text-gray-400 leading-relaxed italic">Mastering the strings. Learn the art of guitar from a professional musician.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="admission" class="py-40 bg-black flex flex-col items-center px-6">
+        <div class="w-full max-w-3xl text-center">
+            <h2 class="heading-font text-5xl md:text-7xl mb-16 italic font-bold text-white">ADMISSION <br> PORTAL.</h2>
+            
+            <form id="detailedForm" class="space-y-10 text-left bg-zinc-900/50 p-10 rounded-[40px] border border-zinc-800 backdrop-blur-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <input type="text" id="name" placeholder="STUDENT FULL NAME" class="w-full bg-transparent border-b border-zinc-800 py-4 outline-none focus:border-red-600 text-white text-[10px] tracking-widest uppercase" required>
+                    <input type="tel" id="phone" placeholder="STUDENT/WHATSAPP NO." class="w-full bg-transparent border-b border-zinc-800 py-4 outline-none focus:border-red-600 text-white text-[10px] tracking-widest uppercase" required>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <input type="text" id="parentName" placeholder="FATHER'S / MOTHER'S NAME" class="w-full bg-transparent border-b border-zinc-800 py-4 outline-none focus:border-red-600 text-white text-[10px] tracking-widest uppercase">
+                    <input type="text" id="address" placeholder="FULL RESIDENTIAL ADDRESS" class="w-full bg-transparent border-b border-zinc-800 py-4 outline-none focus:border-red-600 text-white text-[10px] tracking-widest uppercase">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <select id="course" class="w-full bg-transparent border-b border-zinc-800 py-4 outline-none focus:border-red-600 text-zinc-500 text-[10px] tracking-widest uppercase">
+                        <option value="">SELECT COURSE</option>
+                        <option value="Dance">Dance</option>
+                        <option value="Arts">Fine Arts</option>
+                        <option value="Zumba">Zumba</option>
+                        <option value="Guitar">Guitar</option>
+                    </select>
+                    <div class="relative">
+                        <label class="text-[9px] text-zinc-500 block mb-2 tracking-widest uppercase">Identity Proof (Aadhar/PAN)</label>
+                        <input type="file" id="document" class="w-full text-[10px] text-zinc-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-[10px] file:font-semibold file:bg-zinc-800 file:text-white hover:file:bg-red-600 cursor-pointer">
+                    </div>
+                </div>
+                <button type="button" onclick="sendDetailedInquiry()" class="w-full bg-white text-black py-8 heading-font font-bold text-[10px] tracking-[0.5em] hover:bg-red-600 hover:text-white transition shadow-2xl">Confirm Enrollment</button>
+            </form>
+        </div>
+    </section>
+
     <footer class="p-20 text-center border-t border-zinc-900 bg-black">
         <p class="text-zinc-700 text-[10px] uppercase tracking-[0.8em] mb-4">&copy; 2026 BEATSTREET ARTS COLLECTIVE. KALYANI.</p>
-        <p class="text-[9px] tracking-[0.3em] text-zinc-500 uppercase">Architected & Developed by <span class="text-white font-bold hover:underline">Abhay Basfore</span></p>
+        <p class="text-[9px] tracking-[0.3em] text-zinc-500 uppercase">Architected & Developed by <span class="text-white font-bold">Abhay Basfore</span></p>
     </footer>
 
     <script>
@@ -152,6 +184,18 @@
             gsap.to(outline, {x: e.clientX - 17, y: e.clientY - 17, duration: 0.3});
         });
         gsap.from(".animate-title", { duration: 2, opacity: 0, y: 100, ease: "power4.out" });
+
+        function sendDetailedInquiry() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const parent = document.getElementById('parentName').value;
+            const addr = document.getElementById('address').value;
+            const course = document.getElementById('course').value;
+            const whatsappNumber = "919123740880";
+            if(!name || !phone) { alert("Please fill mandatory fields."); return; }
+            const text = `*New Admission Form*%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Parent:* ${parent}%0A*Address:* ${addr}%0A*Course:* ${course}`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+        }
     </script>
 </body>
 </html>
