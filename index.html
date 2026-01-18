@@ -13,41 +13,20 @@
         body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
         .heading-font { font-family: 'Syncopate', sans-serif; text-transform: uppercase; }
         
-        /* Cursor logic - Desktop only */
         @media (min-width: 1024px) {
             body { cursor: none; }
             .cursor-dot { width: 8px; height: 8px; background: var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 10000; }
             .cursor-outline { width: 35px; height: 35px; border: 1px solid rgba(255,255,255,0.5); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.15s ease-out; }
         }
 
-        /* High Visibility Background */
         .section-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
-        .section-bg img, .section-bg video { 
-            width: 100%; height: 100%; object-fit: cover; 
-            filter: brightness(0.7) contrast(1.1);
-        }
-        .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)); }
+        .section-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) contrast(1.1); }
+        .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); }
 
-        /* Glassmorphism Card for Mobile */
-        .teacher-card { 
-            background: rgba(255, 255, 255, 0.08); 
-            backdrop-filter: blur(15px); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 20px;
-            border-radius: 20px; 
-        }
-
-        /* Responsive Typography */
-        .animate-title { font-size: clamp(1.8rem, 10vw, 6.5rem); line-height: 1.1; letter-spacing: -2px; }
-        
-        /* Smooth Marquee */
+        .teacher-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 24px; }
+        .animate-title { font-size: clamp(2rem, 9vw, 6.5rem); line-height: 1.1; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .animate-marquee { animation: marquee 15s linear infinite; display: flex; width: max-content; }
-
-        /* Hide Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: var(--accent); }
+        .animate-marquee { animation: marquee 20s linear infinite; display: flex; width: max-content; }
     </style>
 </head>
 <body>
@@ -60,89 +39,114 @@
             <div class="heading-font text-lg md:text-2xl font-bold tracking-tighter">
                 B-STREET<span class="text-red-600">.</span>
             </div>
-            
-            <div class="flex items-center gap-4 md:gap-8 text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold">
+            <div class="flex items-center gap-5 md:gap-8 text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold">
+                <a href="#home" class="hover:text-red-600 transition hidden md:block">Home</a>
                 <a href="#admission" class="hover:text-red-600 transition">Admission</a>
-                <a href="https://wa.me/918697781622" class="bg-red-600 px-3 py-2 md:px-5 md:py-2.5 text-white hover:bg-white hover:text-black transition duration-300">Contact</a>
+                <a href="https://wa.me/918100565299" target="_blank" class="bg-red-600 px-4 py-2 text-white hover:bg-white hover:text-black transition">Contact</a>
             </div>
         </div>
     </nav>
 
     <section id="home" class="relative h-[100svh] flex items-center px-6 md:px-24">
         <div class="section-bg">
-            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=1887&auto=format&fit=crop" alt="Dance Background">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=2000" alt="Beatstreet x Kalakriti">
         </div>
         <div class="overlay"></div>
-        <div class="z-10 w-full mt-10">
+        <div class="z-10 mt-10">
             <h1 class="heading-font animate-title mb-4">
                 BEATSTREET <br> 
-                <span class="text-transparent" style="-webkit-text-stroke: 1px white;">x KALAKRITI</span>
+                <span class="text-transparent" style="-webkit-text-stroke: 1.5px white;">x KALAKRITI</span>
             </h1>
-            <p class="text-red-500 text-[10px] md:text-[12px] tracking-[0.4em] uppercase mb-8 font-bold">Kalyani's Creative Hub</p>
-            <a href="#admission" class="bg-red-600 w-full md:w-auto text-center px-10 py-4 heading-font text-[10px] tracking-[0.3em] hover:bg-white hover:text-black transition inline-block border border-red-600">
-                Start Journey
-            </a>
+            <p class="text-red-600 text-[10px] md:text-[12px] tracking-[0.5em] uppercase mb-8 font-bold">Kalyani's Premier Art Destination</p>
+            <a href="#admission" class="bg-red-600 px-10 py-4 heading-font text-[10px] tracking-[0.3em] hover:bg-white hover:text-black transition inline-block">Enroll Now</a>
         </div>
     </section>
 
-    <div class="py-5 bg-red-600 overflow-hidden border-y border-white/10">
+    <div class="py-6 bg-red-600 overflow-hidden border-y border-white/10">
         <div class="flex whitespace-nowrap animate-marquee">
-            <span class="heading-font text-xl md:text-2xl mx-6 text-black font-black">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
-            <span class="heading-font text-xl md:text-2xl mx-6 text-black font-black">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
+            <span class="heading-font text-2xl mx-10 text-black font-bold">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
+            <span class="heading-font text-2xl mx-10 text-black font-bold">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
         </div>
     </div>
 
-    <section id="admission" class="relative min-h-screen py-20 px-4 md:px-24 flex items-center justify-center bg-[#050505]">
-        <div class="teacher-card w-full max-w-4xl z-10">
+    <section id="admission" class="relative min-h-screen py-24 px-4 md:px-24 flex items-center justify-center bg-[#050505]">
+        <div class="teacher-card w-full max-w-3xl z-10">
             <div class="text-center mb-10">
-                <h2 class="heading-font text-2xl md:text-4xl mb-2 tracking-widest text-white">Enrollment</h2>
-                <div class="h-1 w-20 bg-red-600 mx-auto"></div>
+                <h2 class="heading-font text-2xl md:text-3xl tracking-widest text-white">Admission Form</h2>
+                <div class="h-1 w-20 bg-red-600 mx-auto mt-2"></div>
             </div>
 
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
-                    <label class="text-[9px] uppercase tracking-[0.2em] text-red-500 font-bold">Student Name</label>
-                    <input type="text" placeholder="Full Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
+                    <label class="text-[10px] uppercase text-red-500 font-bold">Student Name</label>
+                    <input type="text" id="stu_name" placeholder="Full Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-[9px] uppercase tracking-[0.2em] text-red-500 font-bold">Parent Name</label>
-                    <input type="text" placeholder="Guardian Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
+                    <label class="text-[10px] uppercase text-red-500 font-bold">Parent Name</label>
+                    <input type="text" id="parent_name" placeholder="Guardian Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-[9px] uppercase tracking-[0.2em] text-red-500 font-bold">WhatsApp Number</label>
-                    <input type="tel" placeholder="+91" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
+                    <label class="text-[10px] uppercase text-red-500 font-bold">Mobile Number</label>
+                    <input type="tel" id="mobile" placeholder="+91" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
                 </div>
                 <div class="space-y-2">
-                    <label class="text-[9px] uppercase tracking-[0.2em] text-red-500 font-bold">ID Proof (Aadhar/School ID)</label>
-                    <input type="file" class="w-full text-[10px] text-gray-400 file:bg-red-600 file:border-none file:text-white file:px-4 file:py-2 file:rounded-lg file:mr-4 file:text-[10px] file:uppercase">
-                </div>
-                <div class="space-y-2 md:col-span-2">
-                    <label class="text-[9px] uppercase tracking-[0.2em] text-red-500 font-bold">Choose Department</label>
-                    <select class="w-full bg-black border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm appearance-none">
-                        <option>Dance (Hip-Hop/Classical)</option>
-                        <option>Music (Guitar/Vocal)</option>
-                        <option>Fitness (Zumba/Yoga)</option>
-                        <option>Fine Arts (Sketching/Painting)</option>
+                    <label class="text-[10px] uppercase text-red-500 font-bold">Select Course</label>
+                    <select id="course_select" class="w-full bg-black border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 text-sm">
+                        <option>Dance Academy</option>
+                        <option>Music/Guitar</option>
+                        <option>Yoga & Zumba</option>
+                        <option>Fine Arts/Drawing</option>
                     </select>
                 </div>
-                <button type="submit" class="md:col-span-2 bg-red-600 hover:bg-white hover:text-black transition-all duration-500 py-5 rounded-xl heading-font text-[11px] tracking-[0.5em] shadow-lg shadow-red-600/20">
-                    Submit Application
+                <button type="button" onclick="sendWhatsApp()" class="md:col-span-2 bg-red-600 hover:bg-white hover:text-black transition-all duration-500 py-5 rounded-xl heading-font text-[11px] tracking-[0.4em] font-bold">
+                    Submit via WhatsApp
                 </button>
             </form>
         </div>
     </section>
 
-    <footer class="py-12 px-6 text-center bg-black border-t border-white/5">
-        <div class="heading-font text-xl mb-2">B-STREET <span class="text-red-600">x</span> KALAKRITI</div>
-        <p class="text-[8px] md:text-[10px] tracking-[0.3em] text-gray-500 uppercase mb-6">The Ultimate Art Destination in Kalyani</p>
-        <div class="flex justify-center gap-6 text-gray-400 text-xs">
-            <a href="#" class="hover:text-red-600">Instagram</a>
-            <a href="#" class="hover:text-red-600">Facebook</a>
+    <footer class="bg-black py-16 px-6 md:px-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            
+            <div class="text-center md:text-left">
+                <h3 class="heading-font text-2xl font-bold mb-2">B-STREET <span class="text-red-600">x</span> KALAKRITI</h3>
+                <p class="text-gray-500 text-[10px] uppercase tracking-[0.4em]">The Ultimate Art Academy in Kalyani</p>
+            </div>
+
+            <div class="flex flex-col items-center gap-4">
+                <div class="flex gap-8 text-[10px] uppercase tracking-widest text-gray-400">
+                    <a href="#" class="hover:text-red-600 transition">Instagram</a>
+                    <a href="#" class="hover:text-red-600 transition">Facebook</a>
+                    <a href="#" class="hover:text-red-600 transition">Youtube</a>
+                </div>
+                <p class="text-[10px] text-gray-600 uppercase tracking-widest">
+                    © 2026 All Rights Reserved
+                </p>
+            </div>
+
+            <div class="text-center md:text-right">
+                <p class="text-[9px] uppercase tracking-[0.3em] text-gray-500 mb-1">Developed By</p>
+                <a href="#" class="heading-font text-sm hover:text-red-600 transition">Abhay Basfore</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Desktop Cursor Only
+        function sendWhatsApp() {
+            const name = document.getElementById('stu_name').value;
+            const parent = document.getElementById('parent_name').value;
+            const phone = document.getElementById('mobile').value;
+            const course = document.getElementById('course_select').value;
+            const targetNumber = "918100565299"; 
+
+            if(name && parent && phone) {
+                const message = `*New Admission Request*%0A%0A*Student Name:* ${name}%0A*Parent Name:* ${parent}%0A*Phone:* ${phone}%0A*Course:* ${course}`;
+                window.open(`https://wa.me/${targetNumber}?text=${message}`, '_blank');
+            } else {
+                alert("Kripya sabhi details bharein!");
+            }
+        }
+
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
         if(window.innerWidth > 1024) {
