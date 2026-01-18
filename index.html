@@ -13,6 +13,10 @@
         body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
         .heading-font { font-family: 'Syncopate', sans-serif; text-transform: uppercase; }
         
+        /* Navigation fixes for mobile */
+        nav .nav-container { display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        nav .nav-container::-webkit-scrollbar { display: none; }
+
         @media (min-width: 1024px) {
             body { cursor: none; }
             .cursor-dot { width: 8px; height: 8px; background: var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 10000; }
@@ -20,13 +24,12 @@
         }
 
         .section-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
-        .section-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) contrast(1.2); }
-        .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9)); }
+        .section-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4) contrast(1.2); }
+        .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); }
 
-        .teacher-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 35px; border-radius: 24px; transition: all 0.4s ease; }
-        .teacher-card:hover { border-color: var(--accent); background: rgba(255, 255, 255, 0.07); }
+        .teacher-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 24px; transition: all 0.4s ease; }
         
-        .animate-title { font-size: clamp(2rem, 9vw, 6.5rem); line-height: 1.1; }
+        .animate-title { font-size: clamp(1.8rem, 8vw, 6.5rem); line-height: 1.1; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .animate-marquee { animation: marquee 20s linear infinite; display: flex; width: max-content; }
     </style>
@@ -36,176 +39,161 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <nav class="fixed w-full z-[100] bg-black/60 backdrop-blur-xl border-b border-white/5">
-        <div class="px-5 py-4 lg:px-12 flex justify-between items-center">
-            <div class="heading-font text-lg md:text-2xl font-bold tracking-tighter">
+    <nav class="fixed w-full z-[100] bg-black/80 backdrop-blur-xl border-b border-white/5">
+        <div class="px-4 py-4 lg:px-12 flex justify-between items-center gap-4">
+            <div class="heading-font text-sm md:text-2xl font-bold tracking-tighter shrink-0">
                 B-STREET<span class="text-red-600">.</span>
             </div>
-            <div class="flex items-center gap-3 md:gap-8 text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold">
-                <a href="#dance" class="hover:text-red-600 transition">Dance</a>
-                <a href="#guitar" class="hover:text-red-600 transition">Guitar</a>
-                <a href="#yoga" class="hover:text-red-600 transition">Yoga</a>
-                <a href="#zumba" class="hover:text-red-600 transition">Zumba</a>
-                <a href="#art" class="hover:text-red-600 transition">Art</a>
-                <a href="#admission" class="bg-red-600 px-4 py-2 text-white hover:bg-white hover:text-black transition">Join</a>
+            
+            <div class="nav-container flex items-center gap-4 md:gap-8 text-[9px] md:text-[10px] uppercase tracking-[0.15em] font-bold">
+                <a href="#dance" class="hover:text-red-600 transition whitespace-nowrap">Dance</a>
+                <a href="#guitar" class="hover:text-red-600 transition whitespace-nowrap">Guitar</a>
+                <a href="#yoga" class="hover:text-red-600 transition whitespace-nowrap">Yoga</a>
+                <a href="#zumba" class="hover:text-red-600 transition whitespace-nowrap">Zumba</a>
+                <a href="#art" class="hover:text-red-600 transition whitespace-nowrap">Art</a>
+                <a href="#admission" class="bg-red-600 px-3 py-2 text-white hover:bg-white hover:text-black transition whitespace-nowrap">Join</a>
             </div>
         </div>
     </nav>
 
     <section id="home" class="relative h-[100svh] flex items-center px-6 md:px-24">
         <div class="section-bg">
-            <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&q=80&w=2000" alt="Main Hero">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=2000" alt="Dance Performance">
         </div>
         <div class="overlay"></div>
         <div class="z-10 mt-10">
             <h1 class="heading-font animate-title mb-4">
                 BEATSTREET <br> 
-                <span class="text-transparent" style="-webkit-text-stroke: 1.5px white;">x KALAKRITI</span>
+                <span class="text-transparent" style="-webkit-text-stroke: 1.2px white;">x KALAKRITI</span>
             </h1>
-            <p class="text-red-600 text-[10px] md:text-[12px] tracking-[0.5em] uppercase mb-8 font-bold">Kalyani's Ultimate Art School</p>
-            <a href="#admission" class="bg-red-600 px-10 py-4 heading-font text-[10px] tracking-[0.3em] hover:bg-white hover:text-black transition inline-block">Start Your Journey</a>
+            <p class="text-red-600 text-[10px] md:text-[12px] tracking-[0.4em] uppercase mb-8 font-bold">Kalyani's Premier Dance & Art Academy</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#admission" class="bg-red-600 px-8 py-4 heading-font text-[9px] tracking-[0.3em] hover:bg-white hover:text-black transition inline-block">Enroll Now</a>
+                <a href="https://wa.me/918100565299" class="border border-white/20 px-8 py-4 heading-font text-[9px] tracking-[0.3em] hover:bg-red-600 transition inline-block">Contact Us</a>
+            </div>
         </div>
     </section>
 
-    <div class="py-6 bg-red-600 overflow-hidden border-y border-white/10">
+    <div class="py-5 bg-red-600 overflow-hidden border-y border-white/10">
         <div class="flex whitespace-nowrap animate-marquee">
-            <span class="heading-font text-2xl mx-10 text-black font-bold">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
-            <span class="heading-font text-2xl mx-10 text-black font-bold">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
+            <span class="heading-font text-xl mx-10 text-black font-bold">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
+            <span class="heading-font text-xl mx-10 text-black font-bold">Dance • Yoga • Zumba • Guitar • Fine Arts • </span>
         </div>
     </div>
 
     <section id="dance" class="relative min-h-screen flex items-center px-6 md:px-24">
-        <div class="section-bg"><img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&q=80&w=2000" alt="Dance"></div>
+        <div class="section-bg"><img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&q=80&w=2000" alt="Dance Studio"></div>
         <div class="overlay"></div>
         <div class="z-10 teacher-card max-w-lg">
-            <h2 class="heading-font text-4xl mb-4 text-red-600">Dance Academy</h2>
-            <p class="text-sm text-gray-300 mb-8 leading-relaxed">From Hip-hop to Contemporary, we bring out the dancer in you. Special batches for kids and adults with stage performance training.</p>
+            <h2 class="heading-font text-3xl mb-4 text-red-600">Dance Academy</h2>
+            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Master Hip-hop, Contemporary, and Bollywood. Weekly performance workshops and certified courses for all age groups.</p>
             <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center font-bold text-xl italic">D</div>
+                <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center font-bold italic">D</div>
                 <div>
-                    <p class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Head Choreographer</p>
-                    <p class="heading-font text-lg">Lead Instructor Name</p>
+                    <p class="text-[9px] uppercase text-red-500 font-bold">Head Instructor</p>
+                    <p class="heading-font text-sm md:text-md">Available Soon</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="guitar" class="relative min-h-screen flex items-center px-6 md:px-24">
-        <div class="section-bg"><img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&q=80&w=2000" alt="Guitar"></div>
+        <div class="section-bg"><img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&q=80&w=2000" alt="Guitar Class"></div>
         <div class="overlay"></div>
         <div class="z-10 teacher-card max-w-lg ml-auto">
-            <h2 class="heading-font text-4xl mb-4 text-red-600">Music & Guitar</h2>
-            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Learn to play your favorite tunes. Our guitar classes cover chords, music theory, and lead techniques for all levels.</p>
+            <h2 class="heading-font text-3xl mb-4 text-red-600">Music & Guitar</h2>
+            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Acoustic and Electric guitar training. Learn from basics to advanced fingerstyle techniques.</p>
             <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center font-bold text-xl italic">G</div>
+                <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center font-bold italic">G</div>
                 <div>
-                    <p class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Music Mentor</p>
-                    <p class="heading-font text-lg">Instructor Name</p>
+                    <p class="text-[9px] uppercase text-red-500 font-bold">Music Mentor</p>
+                    <p class="heading-font text-sm md:text-md">Available Soon</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="yoga" class="relative min-h-screen flex items-center px-6 md:px-24">
-        <div class="section-bg"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2000" alt="Yoga"></div>
+        <div class="section-bg"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2000" alt="Yoga Session"></div>
         <div class="overlay"></div>
         <div class="z-10 teacher-card max-w-lg">
-            <h2 class="heading-font text-4xl mb-4 text-red-600">Yoga Wellness</h2>
-            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Connect your mind and body. Our yoga sessions focus on flexibility, mental peace, and physical strength.</p>
+            <h2 class="heading-font text-3xl mb-4 text-red-600">Yoga Wellness</h2>
+            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Early morning batches for physical and mental well-being. Focus on flexibility and mindfulness.</p>
             <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center font-bold text-xl italic">Y</div>
+                <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center font-bold italic">Y</div>
                 <div>
-                    <p class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Yoga Guru</p>
-                    <p class="heading-font text-lg">Instructor Name</p>
+                    <p class="text-[9px] uppercase text-red-500 font-bold">Yoga Expert</p>
+                    <p class="heading-font text-sm md:text-md">Available Soon</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="zumba" class="relative min-h-screen flex items-center px-6 md:px-24">
-        <div class="section-bg"><img src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?auto=format&fit=crop&q=80&w=2000" alt="Zumba"></div>
+        <div class="section-bg"><img src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?auto=format&fit=crop&q=80&w=2000" alt="Zumba Workout"></div>
         <div class="overlay"></div>
         <div class="z-10 teacher-card max-w-lg ml-auto">
-            <h2 class="heading-font text-4xl mb-4 text-red-600">Zumba Fitness</h2>
-            <p class="text-sm text-gray-300 mb-8 leading-relaxed">High energy, high fun! Torch those calories with our rhythmic Zumba workouts designed for fitness lovers.</p>
+            <h2 class="heading-font text-3xl mb-4 text-red-600">Zumba Fitness</h2>
+            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Join the party! High-energy dance workouts to keep you fit and active every day.</p>
             <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center font-bold text-xl italic">Z</div>
+                <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center font-bold italic">Z</div>
                 <div>
-                    <p class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Fitness Coach</p>
-                    <p class="heading-font text-lg">Instructor Name</p>
+                    <p class="text-[9px] uppercase text-red-500 font-bold">Fitness Coach</p>
+                    <p class="heading-font text-sm md:text-md">Available Soon</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="art" class="relative min-h-screen flex items-center px-6 md:px-24 border-b border-white/10">
-        <div class="section-bg"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=2000" alt="Art"></div>
+    <section id="art" class="relative min-h-screen flex items-center px-6 md:px-24">
+        <div class="section-bg"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=2000" alt="Fine Arts Class"></div>
         <div class="overlay"></div>
         <div class="z-10 teacher-card max-w-lg">
-            <h2 class="heading-font text-4xl mb-4 text-red-600">Fine Arts</h2>
-            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Express yourself through colors. We teach sketching, painting, and creative arts for all ages in a vibrant studio environment.</p>
+            <h2 class="heading-font text-3xl mb-4 text-red-600">Fine Arts</h2>
+            <p class="text-sm text-gray-300 mb-8 leading-relaxed">Drawing, Sketching, and Painting classes for kids and enthusiasts. Unleash your creativity on canvas.</p>
             <div class="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center font-bold text-xl italic">A</div>
+                <div class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center font-bold italic">A</div>
                 <div>
-                    <p class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Art Master</p>
-                    <p class="heading-font text-lg">Instructor Name</p>
+                    <p class="text-[9px] uppercase text-red-500 font-bold">Art Curator</p>
+                    <p class="heading-font text-sm md:text-md">Available Soon</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="admission" class="relative min-h-screen py-24 px-4 md:px-24 flex items-center justify-center bg-[#050505]">
-        <div class="teacher-card w-full max-w-3xl z-10 border-red-600/30">
+    <section id="admission" class="relative min-h-screen py-24 px-4 flex items-center justify-center bg-[#050505]">
+        <div class="teacher-card w-full max-w-2xl z-10 border-red-600/30">
             <div class="text-center mb-10">
-                <h2 class="heading-font text-2xl md:text-3xl tracking-widest text-white">Enrollment 2026</h2>
-                <div class="h-1 w-20 bg-red-600 mx-auto mt-2"></div>
+                <h2 class="heading-font text-2xl tracking-widest">Registration</h2>
+                <p class="text-[10px] text-red-600 mt-2">Book Your Free Trial Class</p>
             </div>
 
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                    <label class="text-[10px] uppercase text-red-500 font-bold">Student Name</label>
-                    <input type="text" id="stu_name" placeholder="Enter Full Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] uppercase text-red-500 font-bold">Guardian Name</label>
-                    <input type="text" id="parent_name" placeholder="Father/Mother Name" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] uppercase text-red-500 font-bold">Mobile Number</label>
-                    <input type="tel" id="mobile" placeholder="+91" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 transition text-sm">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] uppercase text-red-500 font-bold">Select Course</label>
-                    <select id="course_select" class="w-full bg-black border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 text-sm">
-                        <option>Dance Academy</option>
-                        <option>Music/Guitar</option>
-                        <option>Yoga Sessions</option>
-                        <option>Zumba Classes</option>
-                        <option>Fine Arts/Drawing</option>
-                    </select>
-                </div>
-                <button type="button" onclick="sendWhatsApp()" class="md:col-span-2 bg-red-600 hover:bg-white hover:text-black transition-all duration-500 py-5 rounded-xl heading-font text-[11px] tracking-[0.4em] font-bold">
-                    Confirm via WhatsApp
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" id="stu_name" placeholder="Student Name" class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 text-sm">
+                <input type="text" id="parent_name" placeholder="Guardian Name" class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 text-sm">
+                <input type="tel" id="mobile" placeholder="Mobile Number" class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 text-sm">
+                <select id="course_select" class="bg-black border border-white/10 p-4 rounded-xl outline-none focus:border-red-600 text-sm">
+                    <option>Dance Academy</option>
+                    <option>Music/Guitar</option>
+                    <option>Yoga Sessions</option>
+                    <option>Zumba Fitness</option>
+                    <option>Fine Arts/Drawing</option>
+                </select>
+                <button type="button" onclick="sendWhatsApp()" class="md:col-span-2 bg-red-600 hover:bg-white hover:text-black transition-all duration-500 py-4 rounded-xl heading-font text-[10px] tracking-[0.3em] font-bold">
+                    Submit via WhatsApp
                 </button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-black py-16 px-6 md:px-24 border-t border-white/10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-center md:text-left">
-                <h3 class="heading-font text-2xl font-bold mb-2">B-STREET <span class="text-red-600">x</span> KALAKRITI</h3>
-                <p class="text-gray-500 text-[10px] uppercase tracking-[0.4em]">Kalyani's Premier Art Destination</p>
-            </div>
-            <div class="flex flex-col items-center gap-4">
-                <div class="flex gap-8 text-[10px] uppercase tracking-widest text-gray-400">
-                    <a href="#" class="hover:text-red-600 transition">Instagram</a>
-                    <a href="#" class="hover:text-red-600 transition">Facebook</a>
-                    <a href="#" class="hover:text-red-600 transition">Youtube</a>
-                </div>
-                <p class="text-[10px] text-gray-600 uppercase tracking-widest">© 2026 Developed By Abhay Basfore</p>
-            </div>
+    <footer class="bg-black py-12 px-6 border-t border-white/10 text-center">
+        <h3 class="heading-font text-xl font-bold mb-4">B-STREET <span class="text-red-600">x</span> KALAKRITI</h3>
+        <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-6">Kalyani, West Bengal</p>
+        <div class="flex justify-center gap-6 text-[10px] uppercase tracking-widest text-gray-400 mb-8">
+            <a href="#" class="hover:text-red-600">Instagram</a>
+            <a href="#" class="hover:text-red-600">Facebook</a>
         </div>
+        <p class="text-[9px] text-gray-600">© 2026 Developed By Abhay Basfore</p>
     </footer>
 
     <script>
@@ -216,15 +204,14 @@
             const course = document.getElementById('course_select').value;
             const targetNumber = "918100565299"; 
 
-            if(name && parent && phone) {
-                const message = `*Admission Enquiry*%0A%0A*Name:* ${name}%0A*Guardian:* ${parent}%0A*Phone:* ${phone}%0A*Course:* ${course}`;
+            if(name && phone) {
+                const message = `*Admission Inquiry*%0A*Name:* ${name}%0A*Parent:* ${parent}%0A*Phone:* ${phone}%0A*Course:* ${course}`;
                 window.open(`https://wa.me/${targetNumber}?text=${message}`, '_blank');
             } else {
-                alert("Please fill all details!");
+                alert("Please fill Name and Mobile!");
             }
         }
 
-        // Custom Cursor Logic
         const dot = document.querySelector('.cursor-dot');
         const outline = document.querySelector('.cursor-outline');
         if(window.innerWidth > 1024) {
@@ -235,5 +222,4 @@
         }
     </script>
 </body>
-    </html>
-    
+</html>
