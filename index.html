@@ -110,7 +110,7 @@
   <h2 class="heading text-2xl text-center mb-10 tracking-widest text-white">Our <span class="text-red-500">Mentors</span></h2>
   <div class="space-y-6">
     <div class="box-gradient p-6 rounded-3xl flex flex-col md:flex-row gap-6 items-center">
-      <img src="https://i.ibb.co/C3YfG2b/aniket-prasad.jpg" class="h-32 w-32 rounded-full object-cover border-2 border-red-600 shadow-lg shadow-red-600/20">
+      <img src="https://i.ibb.co/XfXkY9q/v58zwrf.jpg" class="h-32 w-32 rounded-full object-cover border-2 border-red-600 shadow-lg shadow-red-600/20">
       <div class="text-center md:text-left">
         <h3 class="heading text-xl text-white font-bold">Aniket Prasad</h3>
         <p class="text-[10px] text-red-500 font-bold mb-2 tracking-widest uppercase">Dance & Zumba Expert • 📞 +91 8100565299</p>
@@ -169,7 +169,7 @@
         <p class="text-[10px] uppercase opacity-50 ml-1 text-gray-400 font-bold">Upload ID Document (Optional)</p>
         <input type="file" class="w-full p-3 bg-black/40 border border-dashed border-white/20 rounded-xl text-xs text-gray-500">
       </div>
-      <button class="w-full bg-red-600 hover:bg-red-700 py-4 font-bold rounded-xl transition-all uppercase tracking-widest text-xs mt-4 shadow-lg shadow-red-600/20 text-white">Submit Registration</button>
+      <button type="submit" class="w-full bg-red-600 hover:bg-red-700 py-4 font-bold rounded-xl transition-all uppercase tracking-widest text-xs mt-4 shadow-lg shadow-red-600/20 text-white">Submit Registration</button>
     </form>
   </div>
 </section>
@@ -195,39 +195,38 @@
         </div>
     </div>
 
-    <form id="reviewForm">
-        <div id="form-content">
-            <p class="text-[10px] opacity-50 mb-3 uppercase text-white font-bold">Tap stars to rate</p>
-            <div class="star-rating mb-4">
-              <input type="radio" name="stars" id="star-5" value="5"><label for="star-5">★</label>
-              <input type="radio" name="stars" id="star-4" value="4"><label for="star-4">★</label>
-              <input type="radio" name="stars" id="star-3" value="3"><label for="star-3">★</label>
-              <input type="radio" name="stars" id="star-2" value="2"><label for="star-2">★</label>
-              <input type="radio" name="stars" id="star-1" value="1"><label for="star-1">★</label>
-            </div>
-            <button type="button" onclick="submitRating()" class="w-full bg-white text-black py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 hover:text-white transition">Submit Review</button>
+    <div id="rating-form-area">
+        <p class="text-[10px] opacity-50 mb-3 uppercase text-white font-bold">Tap stars to rate</p>
+        <div class="star-rating mb-4">
+          <input type="radio" name="stars" id="star-5" value="5"><label for="star-5">★</label>
+          <input type="radio" name="stars" id="star-4" value="4"><label for="star-4">★</label>
+          <input type="radio" name="stars" id="star-3" value="3"><label for="star-3">★</label>
+          <input type="radio" name="stars" id="star-2" value="2"><label for="star-2">★</label>
+          <input type="radio" name="stars" id="star-1" value="1"><label for="star-1">★</label>
         </div>
-        <div id="success-msg" class="hidden">
-            <p class="text-red-500 font-bold uppercase tracking-widest text-xs py-4">Rating ho gaya hain!</p>
-        </div>
-    </form>
+        <button type="button" onclick="handleRating()" class="w-full bg-white text-black py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 hover:text-white transition">Submit Review</button>
+    </div>
+
+    <div id="rating-success" class="hidden py-4">
+        <p class="text-red-500 font-bold uppercase tracking-widest text-[10px]">Rating ho gaya hain!</p>
+    </div>
+
     <p class="text-[9px] opacity-40 uppercase tracking-widest mt-4 italic text-white">Live Academy Ratings</p>
   </div>
 </section>
 
 <script>
-  function submitRating() {
+  function handleRating() {
     const stars = document.getElementsByName('stars');
     let selected = false;
     for(let star of stars) {
-      if(star.checked) { selected = true; break; }
+        if(star.checked) { selected = true; break; }
     }
-    
     if(selected) {
-      document.getElementById('form-content').classList.add('hidden');
-      document.getElementById('success-msg').classList.remove('hidden');
+        document.getElementById('rating-form-area').classList.add('hidden');
+        document.getElementById('rating-success').classList.remove('hidden');
     } else {
-      alert("Please select a star rating!");
+        alert("Please select a star rating!");
     }
   }
 </script>
