@@ -21,6 +21,17 @@
     }
     .box-gradient:hover { border-color: #ff2a2a; transform: translateY(-5px); }
 
+    .form-input {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: #ff2a2a;
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 15px rgba(255, 42, 42, 0.1);
+    }
+
     .star-rating { direction: rtl; display: inline-flex; }
     .star-rating input { display: none; }
     .star-rating label { color: #333; cursor: pointer; font-size: 32px; transition: 0.2s; padding: 0 4px; }
@@ -62,65 +73,65 @@
   </div>
 </section>
 
-<section id="events" class="py-12 px-6 max-w-4xl mx-auto">
-  <div class="box-gradient p-6 rounded-3xl border-l-4 border-l-red-600">
-    <h3 class="heading text-sm mb-4 text-red-500 tracking-widest">Upcoming Events</h3>
-    <div class="space-y-4">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-white/5 pb-4 gap-4">
-        <div>
-          <p class="text-sm font-semibold text-white uppercase tracking-wider">Free Demo Class</p>
-          <p class="text-[10px] opacity-50 italic">Try Dance, Music, Art or Yoga for free!</p>
-        </div>
-        <a href="#admission" class="text-[9px] bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-red-600 hover:text-white transition uppercase tracking-widest text-center">Book Free Slot</a>
-      </div>
-      <div class="flex justify-between items-center">
-        <p class="text-sm font-semibold text-white">Annual Academy Fest 2026</p>
-        <span class="text-[9px] bg-red-600 px-2 py-0.5 rounded text-white font-bold">FEB 15</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="courses" class="py-16 px-6 max-w-7xl mx-auto">
-  <h2 class="heading text-2xl text-center mb-10 tracking-widest text-white">Our <span class="text-red-500">Programs</span></h2>
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-    <div class="box-gradient p-4 rounded-2xl text-center"><h3 class="text-xs font-bold uppercase">Dance</h3></div>
-    <div class="box-gradient p-4 rounded-2xl text-center"><h3 class="text-xs font-bold uppercase">Music</h3></div>
-    <div class="box-gradient p-4 rounded-2xl text-center"><h3 class="text-xs font-bold uppercase">Arts</h3></div>
-    <div class="box-gradient p-4 rounded-2xl text-center"><h3 class="text-xs font-bold uppercase">Yoga</h3></div>
-    <div class="box-gradient p-4 rounded-2xl text-center"><h3 class="text-xs font-bold uppercase">Zumba</h3></div>
-  </div>
-</section>
-
-<section id="gallery" class="py-16 px-6 max-w-7xl mx-auto">
-  <h2 class="heading text-2xl text-center mb-10 tracking-widest text-white">Student <span class="text-red-500">Gallery</span></h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d" class="h-40 w-full object-cover rounded-xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
-    <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a" class="h-40 w-full object-cover rounded-xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
-    <img src="https://images.unsplash.com/photo-1508853713191-1ba24534725d" class="h-40 w-full object-cover rounded-xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
-    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b" class="h-40 w-full object-cover rounded-xl grayscale hover:grayscale-0 transition duration-500 border border-white/10">
-  </div>
-</section>
-
 <section id="teachers" class="py-16 px-6 max-w-5xl mx-auto">
-  <h2 class="heading text-2xl text-center mb-10 tracking-widest text-white">Our <span class="text-red-500">Mentors</span></h2>
+  <h2 class="heading text-2xl text-center mb-10 tracking-widest text-white">Our <span class="text-red-500">Teachers</span></h2>
   <div class="space-y-6">
     <div class="box-gradient p-6 rounded-3xl flex flex-col md:flex-row gap-6 items-center">
-      <img src="https://i.ibb.co/XxwtJzMs/IMG-20260118-WA0005.jpg" class="h-32 w-32 rounded-full object-cover border-2 border-red-600">
+      <div class="flex flex-col items-center">
+        <img src="https://i.ibb.co/XxwtJzMs/IMG-20260118-WA0005.jpg" class="h-32 w-32 rounded-full object-cover border-2 border-red-600 shadow-lg shadow-red-600/20 mb-3">
+        <a href="https://www.instagram.com/a_ket_legacy_?igsh=cXVndjV3bTNlNms1" target="_blank" class="text-[9px] bg-red-600 text-white px-4 py-1.5 rounded-full font-bold hover:scale-105 transition uppercase tracking-tighter">
+          Instagram Profile
+        </a>
+      </div>
       <div class="text-center md:text-left">
         <h3 class="heading text-xl text-white font-bold">Aniket Prasad</h3>
         <p class="text-[10px] text-red-500 font-bold mb-2 tracking-widest uppercase">Dance & Zumba Expert • 📞 +91 8100565299</p>
         <p class="text-xs opacity-60">8+ Years experience in choreography and high-energy fitness sessions.</p>
       </div>
     </div>
-    </div>
+  </div>
 </section>
 
 <section id="admission" class="py-20 px-6">
   <div class="max-w-4xl mx-auto">
-    <h2 class="heading text-2xl text-center mb-10 tracking-widest text-white">Registration <span class="text-red-500">Form</span></h2>
-    <form class="box-gradient p-8 rounded-3xl grid gap-6 max-w-4xl mx-auto">
-        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 py-4 font-bold rounded-xl transition-all uppercase tracking-widest text-xs mt-4 text-white">Submit Registration</button>
+    <div class="text-center mb-12">
+        <h2 class="heading text-2xl tracking-widest text-white">Registration <span class="text-red-500">Form</span></h2>
+        <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-[0.2em]">Join the elite creative community in Kalyani</p>
+    </div>
+    <form class="box-gradient p-10 rounded-[2rem] grid gap-6 border-t-2 border-t-red-600 shadow-2xl shadow-red-600/5">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-1">
+            <label class="text-[9px] uppercase font-bold text-gray-500 ml-1">Student Full Name</label>
+            <input type="text" placeholder="e.g. Abhay Basfore" required class="w-full p-4 form-input rounded-2xl outline-none text-white text-sm">
+        </div>
+        <div class="space-y-1">
+            <label class="text-[9px] uppercase font-bold text-gray-500 ml-1">Parent/Guardian Name</label>
+            <input type="text" placeholder="Full Name" required class="w-full p-4 form-input rounded-2xl outline-none text-white text-sm">
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-1">
+            <label class="text-[9px] uppercase font-bold text-gray-500 ml-1">Primary Contact Number</label>
+            <input type="tel" placeholder="+91 00000 00000" required class="w-full p-4 form-input rounded-2xl outline-none text-white text-sm">
+        </div>
+        <div class="space-y-1">
+            <label class="text-[9px] uppercase font-bold text-gray-500 ml-1">Choose Specialty</label>
+            <select required class="w-full p-4 bg-[#0f0f0f] border border-white/10 rounded-2xl outline-none text-white text-sm appearance-none">
+              <option value="" disabled selected>Select Course</option>
+              <option value="Dance">Dance Academy</option>
+              <option value="Music">Music Classes</option>
+              <option value="Fine Arts">Fine Arts</option>
+              <option value="Yoga">Yoga & Wellness</option>
+            </select>
+        </div>
+      </div>
+      <div class="space-y-1">
+          <label class="text-[9px] uppercase font-bold text-gray-500 ml-1">Residential Address</label>
+          <textarea placeholder="Enter your full address..." rows="2" required class="w-full p-4 form-input rounded-2xl outline-none text-white text-sm"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-red-600 hover:bg-red-700 py-5 font-bold rounded-2xl transition-all uppercase tracking-[0.3em] text-[10px] mt-4 shadow-xl shadow-red-600/20 text-white">
+        Confirm Registration
+      </button>
     </form>
   </div>
 </section>
@@ -134,20 +145,9 @@
             <p id="avg-display" class="text-4xl font-bold text-white leading-none">0.0</p>
             <p class="text-[8px] opacity-40 uppercase tracking-tighter mt-1"><span id="count-display">0</span> Ratings</p>
         </div>
-        <div class="text-left flex-1 max-w-[120px] space-y-1">
-            <div class="flex items-center gap-2">
-                <span class="text-[7px] opacity-30">5★</span>
-                <div class="flex-1 h-1 bg-white/5 rounded-full"><div id="bar-5" class="bg-red-600 h-full w-0"></div></div>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="text-[7px] opacity-30">4★</span>
-                <div class="flex-1 h-1 bg-white/5 rounded-full"><div id="bar-4" class="bg-red-600 h-full w-0"></div></div>
-            </div>
-        </div>
     </div>
 
     <div id="form-container">
-        <p class="text-[10px] opacity-50 mb-3 uppercase text-white font-bold">Tap stars to rate</p>
         <div class="star-rating mb-4">
           <input type="radio" name="stars" id="star-5" value="5"><label for="star-5">★</label>
           <input type="radio" name="stars" id="star-4" value="4"><label for="star-4">★</label>
@@ -165,58 +165,46 @@
 </section>
 
 <script>
-  // Loading ratings from LocalStorage to keep them on refresh
-  let totalCount = parseInt(localStorage.getItem('bStreetCount')) || 0;
-  let totalSum = parseInt(localStorage.getItem('bStreetSum')) || 0;
-  let hasRated = localStorage.getItem('bStreetRated') === 'true';
+  let tCount = parseInt(localStorage.getItem('bS_Count')) || 0;
+  let tSum = parseInt(localStorage.getItem('bS_Sum')) || 0;
+  let tRated = localStorage.getItem('bS_Rated') === 'true';
 
-  function updateUI() {
-    document.getElementById('avg-display').innerText = totalCount > 0 ? (totalSum / totalCount).toFixed(1) : "0.0";
-    document.getElementById('count-display').innerText = totalCount;
-    if(hasRated) {
+  function updateDisplay() {
+    document.getElementById('avg-display').innerText = tCount > 0 ? (tSum / tCount).toFixed(1) : "0.0";
+    document.getElementById('count-display').innerText = tCount;
+    if(tRated) {
         document.getElementById('form-container').style.display = 'none';
         document.getElementById('success-message').classList.remove('hidden');
     }
   }
 
   function submitRating() {
-    if(hasRated) return;
-
     const stars = document.getElementsByName('stars');
     let val = 0;
     for(let s of stars) { if(s.checked) { val = parseInt(s.value); break; } }
-
     if(val > 0) {
-        totalCount++;
-        totalSum += val;
-        hasRated = true;
-
-        localStorage.setItem('bStreetCount', totalCount);
-        localStorage.setItem('bStreetSum', totalSum);
-        localStorage.setItem('bStreetRated', 'true');
-
-        updateUI();
-    } else {
-        alert("Please select a star rating!");
-    }
+        tCount++; tSum += val; tRated = true;
+        localStorage.setItem('bS_Count', tCount);
+        localStorage.setItem('bS_Sum', tSum);
+        localStorage.setItem('bS_Rated', 'true');
+        updateDisplay();
+    } else { alert("Please select a star rating!"); }
   }
-
-  // Initial UI update
-  window.onload = updateUI;
+  window.onload = updateDisplay;
 </script>
 
 <a href="https://wa.me/918100565299" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-[#25D366] p-4 rounded-full shadow-2xl wa-float flex items-center justify-center">
   <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<section id="contact" class="py-16 text-center border-t border-white/5">
-  <p class="text-xs opacity-50 mb-2 tracking-widest uppercase italic text-gray-400">Located at Kalyani, West Bengal</p>
+<footer class="py-16 text-center border-t border-white/5">
+  <p class="text-xs opacity-50 mb-2 tracking-widest uppercase italic">Located at Kalyani, West Bengal</p>
   <p class="text-xs font-bold text-red-500 mb-6 tracking-widest italic">📞 +91 8100565299</p>
   <div class="mt-8 pt-8 border-t border-white/5">
     <p class="text-[11px] text-white font-bold uppercase tracking-[0.4em]">© 2026 BEATSTREET X KALAKRITI</p>
     <p class="text-[10px] text-white mt-2 tracking-[0.2em] font-bold">Designed by <span class="text-red-500 underline decoration-red-500/50">ABHAY BASFORE</span></p>
   </div>
-</section>
+</footer>
 
 </body>
 </html>
