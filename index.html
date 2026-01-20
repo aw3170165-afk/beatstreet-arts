@@ -1,136 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Beatstreet x Kalakriti | Dance • Music • Art Academy</title>
-<meta name="description" content="Beatstreet x Kalakriti - Professional Dance, Music, Yoga & Art Academy in Kalyani. Join now.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- ✅ BRAND TITLE -->
+  <title>Beatstreet x Kalakriti | Kalyani Creative Academy</title>
+
+  <!-- ✅ SEO BASIC -->
+  <meta name="description" content="Beatstreet x Kalakriti is a professional Dance, Music, Yoga & Art Academy in Kalyani. Join now for creative training.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ FAVICON -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+  <text y='0.9em' font-size='90' fill='red'>●</text>
+  </svg>">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{--accent:#ff2a2a}
-body{font-family:Inter,sans-serif;background:#111;color:white;overflow-x:hidden}
-.heading{font-family:Syncopate,sans-serif;text-transform:uppercase}
-.box{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:22px}
-.section-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
-.overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.9))}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:#0f0f0f;
+  color:#fff;
+  overflow-x:hidden;
+}
+.heading{
+  font-family:Syncopate,sans-serif;
+  text-transform:uppercase;
+}
+.section-bg{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+}
+.section-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.6);
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(15,15,15,.95));
+}
+.box{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:18px;
+  padding:22px;
+}
+input,textarea,select{
+  width:100%;
+  background:#111;
+  border:1px solid rgba(255,255,255,.3);
+  padding:14px;
+  border-radius:12px;
+  color:white;
+}
+a{color:white;text-decoration:none}
+a:hover{color:var(--accent)}
+
 @media(max-width:768px){
-nav div{justify-content:center}
+  nav .menu{flex-wrap:wrap;justify-content:center}
+  h1,h2{text-align:center}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="fixed w-full z-50 bg-black/70 backdrop-blur border-b border-white/10">
-<div class="flex flex-wrap justify-between items-center px-6 py-4 gap-4">
-<div class="heading text-xl">B-STREET<span class="text-red-500">.</span></div>
-<div class="flex flex-wrap gap-4 text-xs uppercase tracking-widest font-bold justify-center">
-<a href="#home">Home</a><a href="#about">About</a><a href="#faculty">Faculty</a>
-<a href="#courses">Courses</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
-<a href="#admission" class="bg-red-600 px-4 py-2 rounded-full">Join</a>
-</div>
-</div>
+<!-- ========== NAVBAR ========== -->
+<nav class="fixed w-full z-50 bg-black/80 backdrop-blur border-b border-white/10">
+  <div class="flex flex-wrap justify-between items-center px-5 py-4 gap-3">
+    <div class="heading text-xl">B-STREET<span class="text-red-500">.</span></div>
+
+    <div class="menu flex gap-4 text-[11px] uppercase tracking-widest font-bold">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#faculty">Faculty</a>
+      <a href="#courses">Courses</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#admission" class="bg-red-600 px-4 py-2 rounded-full">Join</a>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
+<!-- ========== HERO ========== -->
 <section id="home" class="relative h-screen flex items-center px-6 md:px-24">
-<div class="absolute inset-0 section-bg">
-<img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad">
-</div><div class="overlay"></div>
-<div>
-<h1 class="heading text-5xl md:text-6xl mb-6">BEATSTREET<br>
-<span class="text-transparent" style="-webkit-text-stroke:1px white">x KALAKRITI</span></h1>
-<p class="text-red-500 tracking-[0.35em] uppercase font-bold">Creative Academy • Kalyani</p>
-</div>
+  <div class="section-bg">
+    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad">
+  </div>
+  <div class="overlay"></div>
+
+  <div>
+    <h1 class="heading text-5xl md:text-6xl mb-6 font-bold">
+      BEATSTREET
+      <span class="block text-transparent" style="-webkit-text-stroke:1.5px white;">
+        x KALAKRITI
+      </span>
+    </h1>
+    <p class="text-red-500 tracking-[0.35em] uppercase font-bold">
+      Kalyani Creative Academy
+    </p>
+  </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ========== ABOUT ========== -->
 <section id="about" class="py-24 max-w-5xl mx-auto px-6">
-<h2 class="heading text-4xl mb-6">About Us</h2>
-<p class="opacity-80 leading-relaxed">
-Beatstreet x Kalakriti is a professional creative academy focused on dance, music, yoga and fine arts. 
-We believe in discipline, expression and confidence building for every student.
-</p>
+  <h2 class="heading text-4xl mb-6">About Us</h2>
+  <p class="opacity-80">
+    Beatstreet x Kalakriti is a professional creative academy focused on dance,
+    music, yoga and fine arts. We build confidence, discipline and expression.
+  </p>
 </section>
 
-<!-- FACULTY -->
+<!-- ========== FACULTY ========== -->
 <section id="faculty" class="py-24 bg-white/5">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="heading text-4xl mb-10">Our Faculty</h2>
-<div class="grid md:grid-cols-3 gap-6">
-<div class="box">Dance Instructor<br><span class="opacity-70">8+ Years Experience</span></div>
-<div class="box">Music Teacher<br><span class="opacity-70">Certified Professional</span></div>
-<div class="box">Art Mentor<br><span class="opacity-70">National Level Artist</span></div>
-</div>
-</div>
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="heading text-4xl mb-10">Our Faculty</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="box">Dance Instructor<br><span class="opacity-70">8+ Years Experience</span></div>
+      <div class="box">Music Teacher<br><span class="opacity-70">Certified Professional</span></div>
+      <div class="box">Art Mentor<br><span class="opacity-70">National Level Artist</span></div>
+    </div>
+  </div>
 </section>
 
-<!-- COURSES & TIMINGS -->
+<!-- ========== COURSES ========== -->
 <section id="courses" class="py-24 max-w-6xl mx-auto px-6">
-<h2 class="heading text-4xl mb-10">Courses & Timings</h2>
-<div class="grid md:grid-cols-2 gap-6">
-<div class="box">Hip Hop (Age 8–14)<br>5:00 – 6:00 PM</div>
-<div class="box">Bollywood Dance<br>6:00 – 7:00 PM</div>
-<div class="box">Music Vocal<br>4:00 – 5:00 PM</div>
-<div class="box">Drawing & Painting<br>3:00 – 4:00 PM</div>
-</div>
+  <h2 class="heading text-4xl mb-10">Courses & Timings</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="box">Hip Hop (Age 8–14)<br>5:00 – 6:00 PM</div>
+    <div class="box">Bollywood Dance<br>6:00 – 7:00 PM</div>
+    <div class="box">Music Vocal<br>4:00 – 5:00 PM</div>
+    <div class="box">Drawing & Painting<br>3:00 – 4:00 PM</div>
+  </div>
 </section>
 
-<!-- GALLERY -->
+<!-- ========== GALLERY ========== -->
 <section id="gallery" class="py-24 bg-white/5">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="heading text-4xl mb-10">Gallery</h2>
-<div class="grid md:grid-cols-3 gap-6">
-<img class="rounded-xl" src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434">
-<img class="rounded-xl" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-<img class="rounded-xl" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
-</div>
-</div>
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="heading text-4xl mb-10">Gallery</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <img class="rounded-xl" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
+    </div>
+  </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- ========== REVIEWS ========== -->
 <section id="reviews" class="py-24 max-w-6xl mx-auto px-6">
-<h2 class="heading text-4xl mb-10">What Parents Say</h2>
-<div class="grid md:grid-cols-3 gap-6">
-<div class="box">“Best academy in Kalyani.”<br><span class="opacity-70">– Parent</span></div>
-<div class="box">“My child gained confidence.”<br><span class="opacity-70">– Student</span></div>
-<div class="box">“Professional teachers.”<br><span class="opacity-70">– Guardian</span></div>
-</div>
+  <h2 class="heading text-4xl mb-10">What Parents Say</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="box">“Best academy in Kalyani.”</div>
+    <div class="box">“My child gained confidence.”</div>
+    <div class="box">“Professional teachers.”</div>
+  </div>
 </section>
 
-<!-- ADMISSION (Google Form Ready) -->
-<section id="admission" class="py-24 text-center">
-<h2 class="heading text-4xl mb-6">Admissions Open</h2>
-<p class="opacity-80 mb-8">Click below to fill the admission form</p>
-<a href="YOUR_GOOGLE_FORM_LINK" target="_blank"
-class="bg-red-600 px-10 py-4 rounded-full font-bold uppercase">
-Fill Admission Form
-</a>
+<!-- ========== ADMISSION (SAME PAGE) ========== -->
+<section id="admission" class="py-24">
+  <h2 class="heading text-4xl mb-10 text-center">Admission Form</h2>
+
+  <form class="max-w-2xl mx-auto grid gap-5 box">
+    <input placeholder="Student Name" required>
+    <input placeholder="Parent Name" required>
+    <input placeholder="Phone Number" pattern="[0-9]{10}" required>
+    <textarea placeholder="Address" required></textarea>
+
+    <select required>
+      <option value="">What do you want to learn?</option>
+      <option>Dance</option>
+      <option>Yoga</option>
+      <option>Music</option>
+      <option>Arts</option>
+    </select>
+
+    <button class="bg-red-600 py-4 font-bold rounded-full">
+      Submit
+    </button>
+  </form>
 </section>
 
-<!-- CONTACT -->
+<!-- ========== CONTACT ========== -->
 <section id="contact" class="py-24 text-center">
-<h2 class="heading text-4xl mb-6">Find Us</h2>
-<iframe class="w-full max-w-4xl mx-auto h-80 rounded-xl"
-src="https://www.google.com/maps?q=kalyani&output=embed"></iframe>
+  <h2 class="heading text-4xl mb-6">Find Us</h2>
+  <iframe class="w-full max-w-4xl mx-auto h-80 rounded-xl"
+    src="https://www.google.com/maps?q=kalyani&output=embed"></iframe>
 </section>
 
-<!-- FOOTER -->
+<!-- ========== FOOTER ========== -->
 <footer class="py-10 text-center text-xs opacity-70">
-<p>© 2026 Beatstreet x Kalakriti</p>
-<p>Designed & Developed by <span class="text-red-500 font-bold">Abhay Basfore</span></p>
+  <p>© 2026 Beatstreet x Kalakriti</p>
+  <p>Designed & Developed by <span class="text-red-500 font-bold">Abhay Basfore</span></p>
 </footer>
-
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/918100565299"
-class="fixed bottom-6 right-6 bg-green-500 w-14 h-14 rounded-full flex items-center justify-center text-2xl">
-💬
-</a>
 
 </body>
 </html>
