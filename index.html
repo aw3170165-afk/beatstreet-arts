@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { background: #0f0f0f; color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
     .heading { font-family: 'Syncopate', sans-serif; text-transform: uppercase; }
     
@@ -163,6 +163,7 @@
           <option value="Music">Music Admission</option>
           <option value="Fine Arts">Fine Arts Admission</option>
           <option value="Yoga">Yoga Admission</option>
+          <option value="Zumba">Zumba Admission</option>
         </select>
       </div>
       <textarea id="full_address" placeholder="Full Address" rows="2" required class="w-full p-4 bg-black/40 border border-white/10 rounded-xl focus:border-red-500 outline-none text-white text-sm text-left"></textarea>
@@ -208,7 +209,6 @@
 </section>
 
 <script>
-  // Rating Logic
   let tCount = parseInt(localStorage.getItem('bS_Count')) || 0;
   let tSum = parseInt(localStorage.getItem('bS_Sum')) || 0;
   let tRated = localStorage.getItem('bS_Rated') === 'true';
@@ -235,8 +235,7 @@
     } else { alert("Please select a star rating!"); }
   }
 
-  // --- WhatsApp & ImgBB Logic ---
-  let fileUrl = "No file uploaded";
+  let fileUrl = "No file attached";
 
   async function uploadFileToLink() {
       const fileInput = document.getElementById('id_file');
@@ -259,7 +258,7 @@
           status.innerText = "✅ Document Ready!";
           status.style.color = "#22c55e"; 
       } catch (error) {
-          status.innerText = "❌ Upload failed. Try again.";
+          status.innerText = "❌ Upload failed. Please try again.";
       }
   }
 
